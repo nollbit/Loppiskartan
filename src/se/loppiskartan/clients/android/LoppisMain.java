@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import se.loppiskartan.clients.android.adapters.Distance;
 import se.loppiskartan.clients.android.adapters.Type;
@@ -26,6 +28,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.location.LocationProvider;
@@ -55,6 +59,7 @@ public class LoppisMain extends Activity {
 	final static int DIALOG_PROGRESS = 1;
 	final static int DIALOG_SERVER_ERROR = 2;
 	final static int DIALOG_ENTER_ADDRESS = 3;
+	final static int DIALOG_NO_SUCH_ADDRESS = 4;
 	
 	final static String PREFS_NAME = "prefs";
 	final static String PREF_RADIUS = "radius";
@@ -205,8 +210,68 @@ public class LoppisMain extends Activity {
         }.start();		
 	}
 
-	protected void doSearchByAddress(final String address) {
+	protected void showAddressAlternatives(String address) {
+        showDialog(DIALOG_PROGRESS);
 
+        Geocoder geoCoder = new Geocoder(this, new Locale("sv", "SE"));
+		final List<Address> addresses;
+		try {
+			addresses = geoCoder.getFromLocationName(address + ", Sweden", 15);
+		} catch (IOException e) {
+	        dismissDialog(DIALOG_PROGRESS);
+			showDialog(DIALOG_SERVER_ERROR);
+			return;
+		}
+		
+		if(addresses.size() == 0) {
+	        dismissDialog(DIALOG_PROGRESS);
+			showDialog(DIALOG_NO_SUCH_ADDRESS);
+			return;
+		}
+
+		for(int i=0;i<addresses.size();i++) {
+			if (!addresses.get(i).hasLatitude() || !addresses.get(i).hasLongitude()) {
+				addresses.remove(i);
+			}
+		}
+
+		final CharSequence[] charAddresses = new CharSequence[addresses.size()];
+		for(int i=0;i<addresses.size();i++) {
+			Address currentAddress = addresses.get(i);
+			StringBuilder stringAddress = new StringBuilder();
+			for(int u=0;u<currentAddress.getMaxAddressLineIndex();u++) {
+				if (u > 0) {
+					stringAddress.append(", ");
+				}
+				stringAddress.append(currentAddress.getAddressLine(u));
+			}
+			charAddresses[i] = stringAddress.toString();
+			Log.e("hej", currentAddress.toString());
+		}
+        dismissDialog(DIALOG_PROGRESS);
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(getText(R.string.choose_address));
+		builder.setItems(charAddresses, new DialogInterface.OnClickListener() {
+		    public void onClick(DialogInterface dialog, int item) {
+		    	Location loc = new Location("geocoder");
+		    	loc.setLatitude(addresses.get(item).getLatitude());
+		    	loc.setLongitude(addresses.get(item).getLongitude());
+		    	doSearchByLocation(loc);
+		    	Toast.makeText(getApplicationContext(), charAddresses[item], Toast.LENGTH_SHORT).show();
+		    }
+		});
+		AlertDialog alert = builder.create();
+		alert.show();
+		
+	}
+	
+	protected void doSearchByAddress(final Address address) {
+
+		if (address == null) {
+			return;
+		}
+		
 		final String type = getCurrentType();
 		final int radius = getCurrentRadius();
 
@@ -215,7 +280,7 @@ public class LoppisMain extends Activity {
 		new Thread() {
             public void run() {
                 try {
-                	final ArrayList<FleaLocation> flees = FleaLocationsGateway.getInstance().searchByAddress(type, radius, address);
+                	final ArrayList<FleaLocation> flees = FleaLocationsGateway.getInstance().searchByAddress(type, radius, address.toString());
                     mHandler.post(new Runnable() {
                         public void run() {
                             onSearchResults(flees);
@@ -285,8 +350,13 @@ public class LoppisMain extends Activity {
 		}
 		
 		
+		// return null if location fix is less than one hour
+		if ((loc.getTime() + 1 * 1000 * 60 * 60) < Calendar.getInstance().getTimeInMillis()) {
+			loc = null;
+		}
+		
 		// dummy data
-		if (loc == null)
+		if (loc == null && false)
 		{
 			loc = new Location("mock");
 			loc.setLatitude(59.3135568);
@@ -315,6 +385,18 @@ public class LoppisMain extends Activity {
 	                   }
 	                }).create();
 	            break;
+		    case DIALOG_NO_SUCH_ADDRESS:
+	            AlertDialog.Builder noSuchBuilder = new AlertDialog.Builder(this);
+	            dialog = noSuchBuilder.setTitle(getText(R.string.error))
+	                .setMessage(getText(R.string.no_such_address))
+	                .setCancelable(true)
+	                .setNeutralButton(getText(R.string.ok), new DialogInterface.OnClickListener() {
+	                    public void onClick(DialogInterface dialog, int id) {
+	                        dialog.cancel();
+	                   }
+	                }).create();
+	            break;
+
 	            
 		    case DIALOG_ENTER_ADDRESS:
 	            AlertDialog.Builder addressBuilder = new AlertDialog.Builder(this);
@@ -331,7 +413,7 @@ public class LoppisMain extends Activity {
 	                .setPositiveButton(getText(R.string.search), new DialogInterface.OnClickListener() {
 	                    public void onClick(DialogInterface dialog, int id) {
 	                        dialog.cancel();
-	                    	doSearchByAddress(addressInput.getText().toString());
+	                        showAddressAlternatives(addressInput.getText().toString());
 	                    }
 	                })
 	                

@@ -6,6 +6,9 @@
     <string name="search_by_location">Från här</string>
     <string name="search_by_address">Sök från address...</string>
     <string name="about">Om Loppiskartan</string>
+    <string name="no_such_address">Kunde inte hitta adressen</string>
+    <string name="choose_address">Välj adress:</string>
+    
     
     <string name="searching">Söker...</string>
     <string name="error">Fel</string>
