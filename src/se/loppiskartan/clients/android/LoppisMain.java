@@ -239,7 +239,7 @@ public class LoppisMain extends Activity {
 		for(int i=0;i<addresses.size();i++) {
 			Address currentAddress = addresses.get(i);
 			StringBuilder stringAddress = new StringBuilder();
-			for(int u=0;u<currentAddress.getMaxAddressLineIndex();u++) {
+			for(int u=0;u<=currentAddress.getMaxAddressLineIndex();u++) {
 				if (u > 0) {
 					stringAddress.append(", ");
 				}
@@ -258,7 +258,6 @@ public class LoppisMain extends Activity {
 		    	loc.setLatitude(addresses.get(item).getLatitude());
 		    	loc.setLongitude(addresses.get(item).getLongitude());
 		    	doSearchByLocation(loc);
-		    	Toast.makeText(getApplicationContext(), charAddresses[item], Toast.LENGTH_SHORT).show();
 		    }
 		});
 		AlertDialog alert = builder.create();
@@ -351,8 +350,11 @@ public class LoppisMain extends Activity {
 		
 		
 		// return null if location fix is less than one hour
-		if ((loc.getTime() + 1 * 1000 * 60 * 60) < Calendar.getInstance().getTimeInMillis()) {
-			loc = null;
+		if (loc != null)
+		{
+			if ((loc.getTime() + 1 * 1000 * 60 * 60) < Calendar.getInstance().getTimeInMillis()) {
+				loc = null;
+			}
 		}
 		
 		// dummy data
