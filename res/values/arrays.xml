@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="find_types"><item>Alla platser</item>
+<item>Loppis</item>
+<item>Auktion</item>
+<item>Antik och Kuriosa</item>
+<item>Second Hand</item>
+</string-array>
+
+<integer-array name="find_radius">
+	<item>500</item>
+	<item>1000</item>
+	<item>5000</item>
+	<item>10000</item>
+	<item>30000</item>
+	<item>50000</item>
+	<item>100000</item>
+	<item>300000</item>
+</integer-array>
+</resources>

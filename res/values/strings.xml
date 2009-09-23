@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Loppiskartan</string>
+    <string name="enter_address">Ange adressen du vill utgå ifrån</string>
+    <string name="search">Sök</string>
+    <string name="search_by_location">Från här</string>
+    <string name="search_by_address">Sök från address...</string>
+    <string name="about">Om Loppiskartan</string>
+    
+    <string name="searching">Söker...</string>
+    <string name="error">Fel</string>
+    <string name="error_noposition">Kunde inte avgöra din position. Testa att söka manuellt.</string>
+    <string name="error_server">Ett fel uppstod vid kommunikationen med Loppiskartan. Försök igen senare.</string>
+    <string name="ok">OK</string>
+    <string name="km">km</string>
+    <string name="cancel">Avbryt</string>
+
+    <string name="results_no_items">Inga träffar</string>
+
+    <string name="choose_email">Välj epost-program</string>
+
+    <string name="flea_type_all">Alla platser</string>
+    <string name="flea_type_flea">Loppis</string>
+    <string name="flea_type_auction">Auktion</string>
+    <string name="flea_type_antique">Antik och Kuriosa</string>
+    <string name="flea_type_secondhand">Second Hand</string>
+
+    <string name="flea_details_link">Hemsida:</string>
+    <string name="flea_details_email">Epost:</string>
+    <string name="flea_details_phone">Telefon:</string>
+    <string name="flea_details_street">Adress:</string>
+    <string name="flea_details_city"></string>
+    <string name="flea_details_show_on_map">Visa på karta</string>
+    <string name="flea_details_send_email">Skicka epost</string>
+    <string name="flea_details_call">Ring</string>
+    <string name="flea_details_open_web">Webbsida</string>
+
+    <string name="flea_details_show_my_location">Min position</string>
+    <string name="flea_details_na">--</string>
+
+    <string name="about_b_1">Den här applikationen tillhandahåller en slags cirkelsökning där man anger inom vilket avstånd man vill hitta loppisar. På det här sättet får man mer relevanta sökresultat. Det går även att ange en adress om man exempelvis vill söka efter loppisar nära andra platser.</string>
+    <string name="about_h_2">Loppiskartan.se</string>
+    <string name="about_b_2">På Loppiskartan.se kan du förutom att söka efter loppisar (och andra evenemang) även lägga till, rösta på och skapa listor över loppisar.</string>
+    <string name="about_link">www.loppiskartan.se</string>
+
+</resources>

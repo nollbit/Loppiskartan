@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="@drawable/bg_1x738_gradient_green">
+
+	<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20px" android:layout_margin="10px" android:src="@drawable/beta_logo" android:layout_gravity="center_horizontal"/>
+	<LinearLayout android:id="@+id/main_vertical_layout" android:layout_height="fill_parent" android:layout_width="fill_parent" android:gravity="center" android:orientation="vertical"><TableLayout android:layout_height="wrap_content" android:layout_width="wrap_content">
+		<TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_horizontal">
+			<ImageView android:layout_height="wrap_content" android:src="@drawable/hitta" android:layout_width="80px" android:layout_gravity="center_vertical" />
+			<Spinner android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/main_type_spinner" />
+		
+</TableRow>
+		<TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_horizontal">
+			<ImageView android:layout_height="wrap_content" android:src="@drawable/inom" android:layout_width="80px" android:layout_gravity="center_vertical" />
+			<Spinner android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/main_radius_spinner" />
+		</TableRow>
+	</TableLayout><Button android:layout_height="wrap_content" android:id="@+id/main_search_button" android:text="@string/search" android:layout_width="150px" android:drawableLeft="@android:drawable/ic_menu_mylocation" android:gravity="center" android:layout_margin="20px" android:layout_gravity="center"></Button>
+</LinearLayout>
+
+	
+</LinearLayout>

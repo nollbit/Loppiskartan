@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/mainlayout" android:orientation="vertical"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+	<!-- 
+	DEBUG
+	<com.google.android.maps.MapView
+		android:id="@+id/details_map_mapview" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:clickable="true"
+		android:apiKey="0MtiE0IlLNlgoVDUR_FXXaxk6qDQWsTbRj-34HA" />
+	 -->
+	<com.google.android.maps.MapView
+		android:id="@+id/details_map_mapview" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:clickable="true"
+		android:apiKey="0MtiE0IlLNliB0pQ7viuApscFOmqmlgj4mZ15qw" />
+ 
+
+	<LinearLayout android:id="@+id/details_map_zoomview"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignBottom="@id/details_map_mapview"
+		android:layout_centerHorizontal="true"></LinearLayout>
+
+	<LinearLayout android:id="@+id/details_map_logo"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_alignTop="@id/details_map_mapview"
+		android:layout_centerHorizontal="true"
+		android:background="#DD475c00"
+		>
+		<ImageView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_below="@+id/details_map_mapview"
+			android:layout_gravity="center_vertical"
+			android:src="@drawable/loppis_logo_small" android:layout_marginTop="3px"></ImageView>
+
+		<TextView android:id="@+id/details_map_title" android:textSize="15px" android:textColor="#FFF" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+	</LinearLayout>
+
+</RelativeLayout>

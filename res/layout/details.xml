@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="@drawable/bg_1x738_gradient_green">
+
+	<LinearLayout android:layout_height="wrap_content"
+		android:layout_width="fill_parent">
+		<ImageView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/beta_logo"
+			android:layout_marginBottom="20px" android:layout_margin="10px" />
+	</LinearLayout>
+
+	<ScrollView android:layout_height="fill_parent" android:layout_width="fill_parent"><LinearLayout android:layout_height="fill_parent" android:layout_width="fill_parent" android:padding="5px" android:orientation="vertical">
+		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_title" android:textSize="20px" android:textColor="#FFF" android:text="#Title#"></TextView>
+		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_description" android:text="#description#"></TextView>
+		<RatingBar android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_rating" android:numStars="5" android:rating="3" android:isIndicator="true" android:stepSize="0.5" style="?android:attr/ratingBarStyleIndicator"></RatingBar><TableLayout android:layout_height="fill_parent" android:layout_width="fill_parent" android:layout_marginTop="5px">
+			<TableRow android:id="@+id/details_row_link" android:layout_width="wrap_content" android:layout_height="wrap_content">
+				<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_label_link" android:text="@string/flea_details_link" android:textColor="#fff" android:layout_marginRight="5px"/>
+				<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_link" android:text="#link#" />
+			</TableRow>
+			<TableRow android:id="@+id/details_row_email" android:layout_width="wrap_content" android:layout_height="wrap_content">
+				<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_label_email" android:text="@string/flea_details_email" android:textColor="#fff" android:layout_marginRight="5px"/>
+				<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_email" android:text="#email#" />
+			</TableRow>
+			<TableRow android:id="@+id/details_row_phone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+				<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_label_phone" android:text="@string/flea_details_phone" android:textColor="#fff" android:layout_marginRight="5px"/>
+				<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_phone" android:text="#phone#" />
+			</TableRow>
+			<TableRow android:id="@+id/details_row_street" android:layout_width="wrap_content" android:layout_height="wrap_content">
+				<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_label_street" android:text="@string/flea_details_street" android:textColor="#fff" android:layout_marginRight="5px"/>
+				<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_street" android:text="#street#" />
+			</TableRow>
+			<TableRow android:id="@+id/details_row_city" android:layout_width="wrap_content" android:layout_height="wrap_content">
+				<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_label_city" android:text="@string/flea_details_city" android:textColor="#fff" android:layout_marginRight="5px"/>
+				<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/details_city" android:text="#city#" />
+			</TableRow>
+		
+</TableLayout>
+	
+</LinearLayout>
+</ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+
+<!-- 
+<LinearLayout android:layout_width="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:padding="3px" android:background="@drawable/skylt" android:layout_height="56px">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal" android:layout_height="wrap_content"
+		android:padding="1px" android:layout_width="fill_parent">
+		<ImageView android:layout_height="wrap_content" android:src="@drawable/loppis_icon"
+			android:layout_gravity="center_vertical|center_horizontal"
+			android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_width="50px"></ImageView>
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Söderloppis"
+			android:id="@+id/row_title" android:textSize="20px"
+			android:textColor="#FFF"></TextView>
+	</LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal" android:layout_height="wrap_content"
+		android:padding="1px" android:layout_width="wrap_content">
+		<TextView android:layout_width="50px"
+			android:layout_height="wrap_content" android:text="1.9km" android:id="@+id/row_distance"
+			android:gravity="right|center_vertical"
+			android:textSize="11px" android:layout_marginLeft="5px" android:layout_marginRight="5px"></TextView>
+		<RatingBar android:id="@+id/row_ratingbar"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			style="?android:attr/ratingBarStyleSmall" android:gravity="center_vertical" android:stepSize="0.5"
+			android:rating="3" android:numStars="5" android:isIndicator="true"></RatingBar>
+		
+		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Stockholm" android:id="@+id/row_city" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:textSize="11px" android:layout_marginLeft="5px"></TextView>
+	
+	</LinearLayout>
+	
+</LinearLayout>
+ -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:padding="3px" android:background="@drawable/skylt" android:layout_height="56px" android:orientation="horizontal" android:layout_gravity="center_horizontal" android:layout_width="fill_parent">
+	
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical" android:layout_height="fill_parent" android:padding="5px" android:layout_width="fill_parent" android:layout_weight="1">
+		
+		
+		
+		
+	
+	<TextView android:layout_height="wrap_content" android:id="@+id/row_title" android:textSize="20px" android:textColor="#FFF" android:gravity="center_vertical" android:text="Söderloppis, den stora i skarpnäck" android:scrollHorizontally="false" android:ellipsize="marquee" android:singleLine="true" android:layout_width="fill_parent"></TextView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Stockholm" android:id="@+id/row_city" android:gravity="center_vertical" android:textSize="11px" android:textColor="#fff"></TextView></LinearLayout><TextView android:layout_height="wrap_content" android:id="@+id/row_distance" android:gravity="right|center_vertical" android:textColor="#fff" android:layout_gravity="right|center_vertical" android:layout_width="wrap_content" android:text="111.9 km" android:textSize="23px" android:layout_marginRight="40px"></TextView>
+	
+
+</LinearLayout>
+ 

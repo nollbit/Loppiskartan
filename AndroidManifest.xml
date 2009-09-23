@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="se.loppiskartan.clients.android"
+      android:versionName="1.0.1" android:versionCode="2">
+    <application android:icon="@drawable/loppis_icon" android:label="@string/app_name" android:debuggable="false">
+
+		<uses-library android:name="com.google.android.maps" />  
+
+        <activity android:name=".LoppisMain"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoppisResults"
+                  android:label="@string/app_name">
+        </activity>
+        <activity android:name=".LoppisDetails"
+                  android:label="@string/app_name">
+        </activity>
+        <activity android:name=".LoppisDetailsMap"
+                  android:label="@string/app_name">
+        </activity>
+        <activity android:name=".LoppisAbout"
+                  android:label="@string/app_name">
+        </activity>
+    </application>
+    <uses-sdk android:minSdkVersion="3" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+<uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+
+</manifest> 

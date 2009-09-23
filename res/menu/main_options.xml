@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:title="@string/search_by_address" 
+		android:id="@+id/main_menu_search_by_address"
+		android:icon="@drawable/ic_menu_search"></item>
+	<item android:title="@string/about" 
+		android:id="@+id/main_menu_about"
+		android:icon="@drawable/ic_menu_info_details"></item>
+</menu>
